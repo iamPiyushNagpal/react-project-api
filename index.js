@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const port = process.env.PORT || 8000 
 const data = require('./data.json');
 
 app.use(require('cors')({ origin: true }));
@@ -20,7 +20,7 @@ app.get('/data', async (req, res) => {
 	return res.status(200).json({ data: dataToReturn, length: data.length });
 });
 
-app.listen(8000, () => {
+app.listen(port, () => {
 	console.log('Server started on port 8000');
 })
 	.on('error', (err) => {
